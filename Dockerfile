@@ -8,9 +8,11 @@ RUN echo 'deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.0 multiver
 RUN apt-get update && apt-get -y install git mongodb-org
 RUN apt-get -y upgrade
 
+COPY mongod.conf /etc/
+
 #   - 27017: process
 #   - 28017: http
 EXPOSE 27017
 EXPOSE 28017
 
-ENTRYPOINT ["mongod"]
+ENTRYPOINT ["mongod", "--config", "/etc/mongod.conf"]
