@@ -15,4 +15,4 @@ COPY mongod.conf /etc/
 EXPOSE 27017
 EXPOSE 28017
 
-ENTRYPOINT ["mongod", "--config", "/etc/mongod.conf"]
+CMD ["mongod", "--config", "/etc/mongod.conf"]
